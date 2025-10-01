@@ -1,0 +1,79 @@
+**Query Rewriter System**
+**Overview**
+
+This project implements a query rewriter system that takes a user query and rewrites it into a more personalized, human-readable format. The focus is on backend functionality and automatic evaluation rather than UI/UX.
+
+The system can be used for:
+
+Improving search results
+
+Personalizing responses based on user queries
+
+Enhancing conversational AI applications
+
+**Dataset**
+
+Synthetic Dataset: 200 sample queries generated from realistic topics like travel, food, tech, home improvement, and health.
+
+Queries are structured to simulate typical user behavior and interests.
+
+Example queries:
+
+"Best Italian restaurants" → "Top-rated Italian restaurants near me"
+
+"Repair washing machine" → "Step-by-step guide to repairing a washing machine"
+
+**Query Rewriting Functionality**
+
+The system uses google/flan-t5-large for rewriting queries.
+
+Rewrites are concise, human-readable, and sometimes personalized based on context.
+
+Queries are input via a live prompt in Colab, producing rewritten queries instantly.
+
+**Evaluation Methodology**
+Automatic Metrics
+**bold text**
+BLEU Score – Measures n-gram overlap between original and rewritten queries. Smoothed BLEU is used to handle short queries effectively.
+
+ROUGE-L F1 – Measures longest common subsequence for quality comparison.
+
+BERTScore – Uses contextual embeddings to evaluate semantic similarity between original and rewritten queries.
+
+Qualitative/Heuristic Check
+
+Queries are also checked for readability and minimum length (≥3 words).
+
+Helps ensure rewrites are complete and meaningful.
+
+Justification: BLEU and ROUGE are standard metrics for text similarity, while BERTScore captures semantic similarity. The heuristic ensures practical usefulness of the rewritten query.
+
+**Setup Instructions**
+
+Clone the repo:
+
+git clone <repo_url>
+cd query_rewriter
+
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+
+Or in Colab:
+
+!pip install transformers datasets sentence-transformers rouge-score sacrebleu torch bert-score
+
+
+Run the notebook or Python script to generate rewrites and compute evaluation metrics.
+
+Enter queries in the live demo section to see rewrites and metrics.
+
+**Outputs**
+
+query_rewriter_outputs/all_rewrites.jsonl – All rewritten queries.
+
+query_rewriter_outputs/automatic_metrics.json – BLEU, ROUGE-L, and BERTScore metrics.
+
+query_rewriter_outputs/manual_check_samples.jsonl – Heuristic check samples.
