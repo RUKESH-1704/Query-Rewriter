@@ -52,8 +52,8 @@ Justification: BLEU and ROUGE are standard metrics for text similarity, while BE
 
 Clone the repo:
 
-git clone <repo_url>
-cd query_rewriter
+git clone https://github.com/RUKESH-1704/Query-Rewriter/
+cd Query-Rewriter
 
 
 Install dependencies:
